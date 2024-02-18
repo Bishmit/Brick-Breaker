@@ -1,5 +1,6 @@
 #pragma once
 #include<SFML/Graphics.hpp>
+#include "../header/player.h"
 #include<iostream>
 
 class bricks {
@@ -15,11 +16,11 @@ private:
 	}; 
 
 	sf::Sprite blocks[ROWS][COLS]; 
-	sf::Texture bricktexture; 
+	sf::Texture bricktexture;  
 
 public: 
 	bricks(); 
 
-	void update(); 
+	void update(player& ba); 
 	void render(sf::RenderWindow *window); 
 };

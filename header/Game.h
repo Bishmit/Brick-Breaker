@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "../header/paddle.h"
 #include "../header/bricks.h"
+#include "../header/player.h"
 #include <iostream>
 
 class Game {
@@ -10,6 +11,7 @@ private:
     sf::Event event;
     paddle p; 
     bricks b; 
+    player ball; 
     void initWindow();
     void initFont();
     void pollEvent();

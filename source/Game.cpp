@@ -31,12 +31,14 @@ const bool Game::isGameRunning() const {
 void Game::update() {
     pollEvent();
     p.update(window);
-    b.update(); 
+    b.update(ball); 
+    ball.update(); 
 }
 
 void Game::render() {
     window->clear();
     p.render(window);
     b.render(window); 
+    ball.render(window); 
     window->display();
 }

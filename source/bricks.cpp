@@ -24,10 +24,26 @@ bricks::bricks()
 	}
 }
 
-void bricks::update()
+void bricks::update(player& ba)
 {
-	// logic of bricks 
+	// Logic for brick collision detection
+	for (int row = 0; row < ROWS; row++)
+	{
+		for (int col = 0; col < COLS; col++)
+		{
+			if (MATRIX[row][col] == 1)
+			{
+				// Check if the player's bounds intersect with the current brick's bounds
+				if (ba.getbounds().intersects((blocks[row][col]).getGlobalBounds()))
+				{
+					std::cout << " collide bhaxa" << "\n"; 
+					ba.should_move_downward = true;
+				}
+			}
+		}
+	}
 }
+
 
 void bricks::render(sf::RenderWindow *window)
 {
