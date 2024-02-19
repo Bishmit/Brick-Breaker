@@ -6,13 +6,13 @@
 class bricks {
 private: 
 	const static int ROWS = 4; 
-	const static int COLS = 5; 
+	const static int COLS = 7; 
 
 	const int MATRIX[ROWS][COLS] = {
-		{1, 1, 1, 1, 1},
-		{1, 1, 1, 1, 1},
-		{1, 0, 0, 0, 1},
-		{1, 0, 0, 0, 1}
+		{1, 1, 1, 1, 1, 1, 1 },
+		{1, 1, 1, 1, 1, 1, 1},
+		{1, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 1}
 	}; 
 
 	sf::Sprite blocks[ROWS][COLS]; 

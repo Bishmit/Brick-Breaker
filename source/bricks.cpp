@@ -9,7 +9,7 @@ bricks::bricks()
 	// defining the block properties
 	int blockwidth = 50; 
 	int blockheight = 30; 
-	int startX = 100; 
+	int startX = 80; 
 	int startY = 100; 
 
 	for (int row = 0; row < ROWS; row++) {
@@ -36,7 +36,7 @@ void bricks::update(player& ba)
 				// Check if the player's bounds intersect with the current brick's bounds
 				if (ba.getbounds().intersects((blocks[row][col]).getGlobalBounds()))
 				{
-			    	ba.makedirectionchange(); 
+					ba.makedirectionchange(); 
 					std::cout << " collide bhaxa" << "\n"; 
 				}   
 			}

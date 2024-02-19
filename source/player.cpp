@@ -1,6 +1,6 @@
 #include "../header/player.h"
 
-player::player(): movement_y(-5.f),movement_x(0.f), ball_should_move(false)
+player::player(): movement_y(-5.f),movement_x(-5.f), ball_should_move(false)
 {
 	if (!balltex.loadFromFile("Assets/Images/ball.png")) {
 		std::cout << "Error loading texture for the ball" << "\n"; 
@@ -20,8 +20,7 @@ void player::update(paddle &pad)
 	}
 
 	if (ballsprite.getGlobalBounds().intersects(pad.getbound())) {
-		this->movement_x = -3.f; 
-		this->movement_y = -this->movement_y; 
+		movement_y = -movement_y;
 	}
 	manageballboundariescondition(); 
 
