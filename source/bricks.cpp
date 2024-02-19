@@ -36,9 +36,9 @@ void bricks::update(player& ba)
 				// Check if the player's bounds intersect with the current brick's bounds
 				if (ba.getbounds().intersects((blocks[row][col]).getGlobalBounds()))
 				{
+			    	ba.makedirectionchange(); 
 					std::cout << " collide bhaxa" << "\n"; 
-					ba.should_move_downward = true;
-				}
+				}   
 			}
 		}
 	}

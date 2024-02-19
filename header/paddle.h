@@ -12,4 +12,8 @@ public:
     void update(sf::RenderTarget* target);
     void updateWallCollsion(sf::RenderTarget* window);
     void render(sf::RenderTarget* target);
+
+    sf::Vector2f getpos();
+    sf::FloatRect getbound(); 
+
 };

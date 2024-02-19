@@ -37,3 +37,13 @@ void paddle::render(sf::RenderTarget* target)
 {
     target->draw(paddleSprite);
 }
+
+sf::Vector2f paddle::getpos()
+{
+    return paddleSprite.getPosition();
+}
+
+sf::FloatRect paddle::getbound()
+{
+    return paddleSprite.getGlobalBounds();
+}

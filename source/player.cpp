@@ -1,6 +1,6 @@
 #include "../header/player.h"
 
-player::player(): movement(-5.f), ball_should_move(false)
+player::player(): movement_y(-5.f),movement_x(0.f), ball_should_move(false)
 {
 	if (!balltex.loadFromFile("Assets/Images/ball.png")) {
 		std::cout << "Error loading texture for the ball" << "\n"; 
@@ -10,20 +10,27 @@ player::player(): movement(-5.f), ball_should_move(false)
 	ballsprite.setScale(sf::Vector2f(0.25f, 0.25f)); 
 }
 
-void player::update()
+void player::update(paddle &pad)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 		ball_should_move = true; 
 	}
-	if (ball_should_move && !should_move_downward) {
-		ballsprite.move(0.f, this->movement);
+	if (ball_should_move) {
+		ballsprite.move(movement_x, movement_y);
 	}
 
-	if (ball_should_move && should_move_downward) {
-		ballsprite.move(0.f, -this->movement);
+	if (ballsprite.getGlobalBounds().intersects(pad.getbound())) {
+		this->movement_x = -3.f; 
+		this->movement_y = -this->movement_y; 
 	}
+	manageballboundariescondition(); 
 
 }
+
+void player::makedirectionchange() {
+	//this->movement_x = -this->movement_x;
+	this->movement_y = -this->movement_y;
+ }
 
 void player::render(sf::RenderTarget* target)
 {
@@ -45,12 +52,20 @@ void player::setposition(float x, float y)
 	ballsprite.setPosition(x, y); 
 }
 
-float player::getmovement()
-{
-	return movement;
-}
 
 void player::manageballboundariescondition() {
+	sf::Vector2f ballPosition = ballsprite.getPosition();
+	sf::FloatRect ballBounds = ballsprite.getGlobalBounds();
 
+	// Check left and right boundaries
+	if (ballPosition.x - ballBounds.width <= 0.f || ballPosition.x + ballBounds.width >= 500.f) {
+		movement_x = -movement_x;
+	}
+
+	// Check top and bottom boundaries
+	if (ballPosition.y - ballBounds.height <= 0.f || ballPosition.y + ballBounds.height >= 600.f) {
+		movement_y = -movement_y;
+	}
 }
+
 

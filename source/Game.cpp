@@ -32,7 +32,7 @@ void Game::update() {
     pollEvent();
     p.update(window);
     b.update(ball); 
-    ball.update(); 
+    ball.update(p); 
 }
 
 void Game::render() {
