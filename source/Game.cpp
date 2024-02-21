@@ -38,7 +38,7 @@ void Game::update() {
 void Game::render() {
     window->clear();
     p.render(window);
-    b.render(window); 
+    b.render(window,ball); 
     ball.render(window); 
     window->display();
 }
