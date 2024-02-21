@@ -6,11 +6,6 @@ bricks::bricks(): flag(false),store(0), score(0)
 		std::cout << "Error loading brick" << "\n"; 
 	}
 
-    blocks.resize(ROWS);
-    for (int i = 0; i < ROWS; ++i) {
-        blocks[i].resize(COLS);
-    }
-
     // defining the block properties
     int blockwidth = 50;
     int blockheight = 30;
@@ -52,11 +47,9 @@ void bricks::render(sf::RenderWindow* window, player& ba) {
     for (int row = 0; row < ROWS; row++) {
         for (int col = 0; col < COLS; col++) {
             if (MATRIX[row][col] == 1) {
-                if (ba.getbounds().intersects(blocks[row][col].getGlobalBounds())) {
-                    continue; 
-                }
-                else
+                if (!ba.getbounds().intersects(blocks[row][col].getGlobalBounds())) {
                     window->draw(blocks[row][col]);
+                }
             }
         }
     }

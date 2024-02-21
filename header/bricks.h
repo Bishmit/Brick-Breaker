@@ -2,21 +2,20 @@
 #include<SFML/Graphics.hpp>
 #include "../header/player.h"
 #include<iostream>
-#include<vector>
 
 class bricks {
 private: 
 	const static int ROWS = 4; 
 	const static int COLS = 7; 
 
-	std::vector<std::vector<int>>MATRIX= {
+	int MATRIX[ROWS][COLS] = {
 		{1, 1, 1, 1, 1, 1, 1 },
 		{1, 1, 1, 1, 1, 1, 1},
 		{1, 0, 0, 0, 0, 0, 1},
 		{1, 0, 0, 0, 0, 0, 1}
 	}; 
 
-	std::vector<std::vector<sf::Sprite>> blocks;
+	sf::Sprite blocks[ROWS][COLS];
 	sf::Texture bricktexture;  
 
 	bool flag; 

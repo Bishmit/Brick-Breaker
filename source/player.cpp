@@ -19,7 +19,7 @@ void player::update(paddle &pad)
 		ballsprite.move(movement_x, movement_y);
 	}
 
-	if (ballsprite.getGlobalBounds().intersects(pad.getbound())) {
+	if (ballsprite.getGlobalBounds().intersects(pad.getbound())){
 		movement_y = -movement_y;
 	}
 	manageballboundariescondition(); 

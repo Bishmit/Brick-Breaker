@@ -15,5 +15,4 @@ public:
 
     sf::Vector2f getpos();
     sf::FloatRect getbound(); 
-
 };
