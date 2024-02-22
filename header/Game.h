@@ -11,7 +11,9 @@ private:
     sf::Event event;
     paddle p; 
     bricks b; 
-    player ball; 
+    player ball;
+    sf::Texture bgtex; 
+    sf::Sprite bgsprite;  
     void initWindow();
     void initFont();
     void pollEvent();
@@ -23,4 +25,5 @@ public:
     const bool isGameRunning() const;
     void update();
     void render();
+    void makeBallStickToPaddle();
 };

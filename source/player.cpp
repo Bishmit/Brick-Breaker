@@ -1,6 +1,6 @@
 #include "../header/player.h"
 
-player::player(): movement_y(-5.f),movement_x(-5.f), ball_should_move(false)
+player::player(): movement_y(-5.f),movement_x(-5.f), ball_should_move(false), counter(0)
 {
 	if (!balltex.loadFromFile("Assets/Images/ball.png")) {
 		std::cout << "Error loading texture for the ball" << "\n"; 

@@ -8,8 +8,9 @@ private:
 	sf::Sprite ballsprite; 
 	float movement_x, movement_y; 
 	void manageballboundariescondition(); 
+	int counter; 
 public:
-	bool ball_should_move, should_move_downward;
+	bool ball_should_move;
 	player();
 	void update(paddle &pad);
 	void makedirectionchange();

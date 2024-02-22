@@ -3,6 +3,12 @@
 Game::Game()
 {
     initWindow();
+
+    // background image 
+    if (!bgtex.loadFromFile("Assets/Images/background.jpg")) {
+        std::cout << "background not loaded" << "\n"; 
+    }
+    bgsprite.setTexture(bgtex);
 }
 
 Game::~Game()
@@ -33,12 +39,20 @@ void Game::update() {
     p.update(window);
     b.update(ball); 
     ball.update(p); 
+    makeBallStickToPaddle(); 
 }
 
 void Game::render() {
     window->clear();
+    window->draw(bgsprite); 
     p.render(window);
     b.render(window,ball); 
     ball.render(window); 
     window->display();
+}
+
+void Game::makeBallStickToPaddle() {
+    if (ball.ball_should_move == false) {
+        ball.setposition(p.getpos().x + p.getbound().width/2.5f, p.getpos().y-p.getbound().height);
+    }
 }

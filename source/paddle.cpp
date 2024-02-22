@@ -47,3 +47,4 @@ sf::FloatRect paddle::getbound()
 {
     return paddleSprite.getGlobalBounds();
 }
+

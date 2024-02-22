@@ -20,6 +20,9 @@ private:
 
 	bool flag; 
 	int score, store; 
+
+	sf::Text text;
+	sf::Font font;
 public: 
 	bricks(); 
 
