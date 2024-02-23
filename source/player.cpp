@@ -57,12 +57,12 @@ void player::manageballboundariescondition() {
 	sf::FloatRect ballBounds = ballsprite.getGlobalBounds();
 
 	// Check left and right boundaries
-	if (ballPosition.x - ballBounds.width <= 0.f || ballPosition.x + ballBounds.width >= 500.f) {
+	if (ballPosition.x <= 0.f || ballPosition.x + ballBounds.width >= 500.f) {
 		movement_x = -movement_x;
 	}
 
 	// Check top and bottom boundaries
-	if (ballPosition.y - ballBounds.height <= 0.f || ballPosition.y + ballBounds.height >= 600.f) {
+	if (ballPosition.y <= 0.f || ballPosition.y + ballBounds.height >= 600.f) {
 		movement_y = -movement_y;
 	}
 }
