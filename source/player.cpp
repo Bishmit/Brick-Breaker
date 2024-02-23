@@ -62,8 +62,14 @@ void player::manageballboundariescondition() {
 	}
 
 	// Check top and bottom boundaries
-	if (ballPosition.y <= 0.f || ballPosition.y + ballBounds.height >= 600.f) {
+	if (ballPosition.y <= 0.f ) {
 		movement_y = -movement_y;
+	}
+
+	if (ballPosition.y + ballBounds.height >= 600.f) {
+		// gameover logic here
+		std::cout << "Gameover" << "\n"; 
+		ball_should_move = false; 
 	}
 }
 

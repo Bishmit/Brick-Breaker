@@ -46,7 +46,7 @@ void bricks::update(player& ba) {
                     MATRIX[row][col] = 0;
                     score++;
                     text.setString("Score: " + std::to_string(this->score));
-                    if (score == (ROWS * COLS) - 10) std::cout << "Gameover" << "\n"; 
+                    if (score == (ROWS * COLS) - 10) std::cout << "Level Completed\nCongratulation" << "\n"; 
                     break;
                 }
             }
